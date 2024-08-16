@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PostDTO {
     private String title;
-    private String description
+    private String description;
 }
