@@ -37,4 +37,12 @@ public class PostServicesImp implements PostService{
         PostEntity postEntity =  postRepository.findById(id).orElse(null);
         return modelMapper.map(postEntity,PostDTO.class);
     }
+
+    public PostDTO updatePostById(PostDTO inputPost, Long id){
+        PostEntity olderPost = postRepository.findById(id).orElse(null);
+        inputPost.setId(id);
+        modelMapper.map(inputPost,olderPost);
+        PostEntity savedPost = postRepository.save(olderPost);
+        return modelMapper.map(savedPost, PostDTO.class);
+    }
 }
